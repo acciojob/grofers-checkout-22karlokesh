@@ -6,7 +6,7 @@ let table = document.getElementById("table")
 const getSum = () => {
 //Add your code here
 	let sum=0;
-	const allPrice = document.querySelectorAll(.price);
+	const allPrice = document.querySelectorAll(".price");
 
 	// NA code
 	
