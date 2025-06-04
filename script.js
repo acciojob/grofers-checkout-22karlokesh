@@ -7,12 +7,23 @@ const getSum = () => {
 //Add your code here
 	let sum=0;
 	const allPrice = document.querySelectorAll(.price);
-	for(int i =0;i<allPrice.length;i++){
-		sum = sum+parseInt(allPrice[i]);
-	}
 
-	let newElement = document.createElement("tr");
-	newElement.innerHTML = sum;
+	// NA code
+	
+	// Calculate total price
+    allPrice.forEach(priceCell => {
+        sum += parseInt(priceCell.textContent);
+    });
+
+    // Create new row and cell
+    let newRow = document.createElement("tr");
+    let newCell = document.createElement("td");
+    newCell.setAttribute("colspan", "2");
+    newCell.style.textAlign = "center";
+    newCell.textContent = `Total Price: Rs ${sum}`;
+
+    newRow.appendChild(newCell);
+    table.appendChild(newRow);
   
 };
 
