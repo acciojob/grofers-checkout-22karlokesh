@@ -31,6 +31,7 @@ const getSum = () => {
 getSumBtn.addEventListener("click", getSum);
 */
 
+
 const getSumBtn = document.createElement("button");
 getSumBtn.append("Get Total Price");
 document.body.appendChild(getSumBtn);
@@ -45,16 +46,17 @@ const getSum = () => {
         sum += parseInt(priceCell.textContent);
     });
 
-    // Check if the total row already exists (optional, prevents duplicate rows)
-    const lastRow = table.lastElementChild;
-    if (lastRow && lastRow.getAttribute("id") === "totalRow") return;
+    // Remove previous total row if already present (optional)
+    const existing = document.getElementById("ans");
+    if (existing) {
+        existing.remove();
+    }
 
     const newRow = document.createElement("tr");
-    newRow.setAttribute("id", "totalRow");
+    newRow.setAttribute("id", "ans");
 
     const newCell = document.createElement("td");
     newCell.setAttribute("colspan", "2");
-    newCell.style.textAlign = "center";
     newCell.textContent = `Total Price: Rs ${sum}`;
 
     newRow.appendChild(newCell);
@@ -62,5 +64,3 @@ const getSum = () => {
 };
 
 getSumBtn.addEventListener("click", getSum);
-
-
